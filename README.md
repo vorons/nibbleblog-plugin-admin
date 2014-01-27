@@ -14,6 +14,7 @@ The Edit link is smart and will redirect you as follows.
 
 * Viewing a page? Redirect to editing the page.
 * Viewing a post? Redirect to editing the post.
+* Viewing a list of posts? Redirect to Manage Posts.
 * Viewing a category? Redirect to Manage Categories.
 * Viewing tags or 404 pages? Redirect to the Dashboard.
 
