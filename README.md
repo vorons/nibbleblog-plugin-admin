@@ -4,7 +4,9 @@ Display Dashboard and Edit links for logged in users.
 
 ## Details
 
-Users who have logged in will be presented with two links. Dashboard and Edit.
+Users who have logged in will be presented with two links when viewing their site. Dashboard and Edit.
+
+![](https://raw.github.com/ForestMist/nibbleblog-plugin-admin/master/screenshot/screenshot.png)
 
 The Dashboard link simply takes you back to the Nibbleblog Dashboard.
 
