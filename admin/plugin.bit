@@ -1,0 +1,76 @@
+<?php
+// =====================================================================
+// PLUGIN INFO
+// =====================================================================
+$_PLUGIN_CONFIG['DATA'] = array(
+    'author'=>'Daniel Gagan',
+    'version'=>'0.1',
+    'url'=>'https://github.com/ForestMist/nibbleblog-plugin-admin'
+);
+
+// =====================================================================
+// PLUGIN CLASS
+// =====================================================================
+class PLUGIN_ADMIN extends Plugin
+{
+
+    public function blog_body()
+    {
+        global $Language;
+
+        $html = '';
+
+        if (isset($_SESSION['session_login']))
+        {
+            // Admin is logged in
+            $html .= '<ul>';
+            $html .= '    <li><a href="' . HTML_PATH_ROOT . 'admin.php">' . $Language->get('DASHBOARD') . '</a></li>';
+            $html .= '    <li><a href="' . $this->edit_url() . '">' . $Language->get('EDIT') . '</a></li>';
+            $html .= '</ul>';
+        }
+        return $html;
+    }
+
+    private function edit_url()
+    {
+        global $page;
+        global $post;
+        global $where_am_i;
+
+        $url = HTML_PATH_ROOT . 'admin.php';
+
+        if ($where_am_i[0] === 'blog')
+        {
+            switch ($where_am_i[1]):
+                case null:
+                    // Home
+                    if (isset($page['id']))
+                    {
+                        // Home is a page
+                        $url .= '?controller=page&action=edit&id_page=' . $page['id'];
+                    }
+                    else
+                    {
+                        // Home is a blog listing
+                        $url .= '?controller=post&action=list';
+                    }
+                    break;
+                case 'post':     $url .= '?controller=post&action=edit_' . $post['type'] . '&id_post=' . $post['id']; break;
+                case 'page':     $url .= '?controller=page&action=edit&id_page=' . $page['id'];                       break;
+                case 'category': $url .= '?controller=categories&action=list';                                        break;
+                default:
+                    // Location may be 'tag', '404' or unknown
+            endswitch;
+        }
+
+        echo '<!-- admin plugin debug ' . "\n";
+        echo '    $where_am_i[0] =  (' . gettype($where_am_i[0]) . ') ' . $where_am_i[0] . "\n";
+        echo '    $where_am_i[1] =  (' . gettype($where_am_i[1]) . ') ' . $where_am_i[1] . "\n";
+        echo '-->' . "\n";
+
+        return $url;
+    }
+
+}
+
+?>

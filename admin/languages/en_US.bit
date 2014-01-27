@@ -1,0 +1,10 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+    'NAME'=>'Admin',
+    'DESCRIPTION'=>'Dashboard and Edit links for logged in users.',
+    'DASHBOARD'=>'Dashboard',
+    'EDIT'=>'Edit'
+);
+
+?>

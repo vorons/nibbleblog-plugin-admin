@@ -1,0 +1,10 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+    'NAME'=>'Administración',
+    'DESCRIPTION'=>'Panel de administración y editar enlaces para los usuarios registrados.',
+    'DASHBOARD'=>'Panel de administración',
+    'EDIT'=>'Editar'
+);
+
+?>
