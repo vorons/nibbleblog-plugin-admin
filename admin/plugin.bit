@@ -17,12 +17,13 @@ class PLUGIN_ADMIN extends Plugin
     public function blog_body()
     {
         global $Language;
+        global $Login;
 
         $html = '';
 
-        if (isset($_SESSION['session_login']))
+        if ($Login->is_logued())
         {
-            // Admin is logged in
+            // User is logged in
             $html .= '<ul>';
             $html .= '    <li><a class="dashboard" href="' . HTML_PATH_ROOT . 'admin.php">' . $Language->get('DASHBOARD') . '</a></li>';
             $html .= '    <li><a class="edit" href="' . $this->edit_url() . '">' . $Language->get('EDIT') . '</a></li>';
