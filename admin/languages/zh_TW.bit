@@ -1,0 +1,10 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+    'NAME'=>'管理選項捷徑',
+    'DESCRIPTION'=>'為已登入的使用者顯示管理首頁與編輯的連結',
+    'DASHBOARD'=>'管理首頁',
+    'EDIT'=>'編輯'
+);
+
+?>
